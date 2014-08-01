@@ -18,15 +18,15 @@ Debugタイプはメッセージがオンラインユーザ全員に流れます
 
 ###＝パーミッションノード＝
 
-*gakubuchi.entity.place Entityの設置を許可するかどうか
+gakubuchi.entity.place Entityの設置を許可するかどうか
 
-*gakubuchi.entity.break Entityの破壊を許可するかどうか
+gakubuchi.entity.break Entityの破壊を許可するかどうか
 
-*gakubuchi.entity.damage 矢などのダメージで破壊できるかどうか
+gakubuchi.entity.damage 矢などのダメージで破壊できるかどうか
 
-*gakubuchi.entity.interact 回転などの何かしらの影響をキャンセルするかどうか
+gakubuchi.entity.interact 回転などの何かしらの影響をキャンセルするかどうか
 
-*gakubuchi.entity.hanging 重くなる可能性がある機能です。依存ブロックを破壊しても壊れなくするかどうか
+gakubuchi.entity.hanging 重くなる可能性がある機能です。依存ブロックを破壊しても壊れなくするかどうか
 
 
 
