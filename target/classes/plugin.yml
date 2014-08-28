@@ -3,5 +3,5 @@ version: 1.0.0
 main: net.jp.minecraft.plugin.main
 permissions:
     gakubuchi.*:
-        description: You do not have a permissions!
+        description: GakubuchiLockPlugin!
         default: op

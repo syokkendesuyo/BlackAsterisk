@@ -1,19 +1,19 @@
 package net.jp.minecraft.plugin;
 
-import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.entity.ItemFrame;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.hanging.HangingBreakByEntityEvent;
-import org.bukkit.event.hanging.HangingBreakEvent;
 import org.bukkit.event.hanging.HangingPlaceEvent;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
 /**
- * entityの破壊をパーミッションで制御するプラグイン
+ * 額縁の管理をパーミッションで制御するプラグイン
+ * デバッグ用
  * @author syokkendesuyo
  */
 
@@ -38,116 +38,120 @@ public class main extends JavaPlugin implements Listener {
 	@EventHandler
 	public void onHangingPlaceEvent(HangingPlaceEvent event) {
 
-		for (Player player: Bukkit.getServer().getOnlinePlayers()) {
-		    if (player.hasPermission("gakubuchi.entity.place")) {
-		        player.sendMessage(
-		        		ChatColor.AQUA
-		        		+"[情報]Entityを設置しました。"
-		        		);
-		    }
+        //もし左クリック先が額縁なら
+        if (event.getEntity() instanceof ItemFrame) {
 
-		    else{
-		    	event.setCancelled(true);
-		    	player.sendMessage(
-		                ChatColor.AQUA
-		                + "[情報]gakubuchi.entity.placeのパーミッションが無い為キャンセルしました。"
-		                );
-            return;
-		    }
-		}
-		return;
+        	//設置者を取得
+        	Player player =(Player)event.getPlayer();
+
+        	//もしgakubuchi.entity.placeのパーミッション名を持っているのなら破壊
+        	if(player.hasPermission("gakubuchi.entity.place")){
+        		player.sendMessage(
+        				ChatColor.AQUA
+        				+"[情報]額縁を設置しました。(パーミッション：gakubuchi.entity.place)"
+        				);
+        	}
+
+
+        	//gakubuchi.entity.placeを持っていないなら破壊イベントをキャンセル
+        	else{
+        		event.setCancelled(true);
+        		player.sendMessage(
+        				ChatColor.AQUA
+        				+"[情報]gakubuchi.entity.placeのパーミッションが無い為キャンセルしました。"
+        				);
+        	}
+        }
 	}
 
-	@EventHandler
-	public void onHangingBreakByEntityEvent(HangingBreakByEntityEvent event) {
-
-		for (Player player: Bukkit.getServer().getOnlinePlayers()) {
-		    if (player.hasPermission("gakubuchi.entity.break")) {
-		        player.sendMessage(
-		        		ChatColor.AQUA
-		        		+"[情報]Entityを破壊しました。"
-		        		);
-		    }
-
-		    else{
-		    	event.setCancelled(true);
-		    	player.sendMessage(
-		                ChatColor.AQUA
-		                + "[情報]gakubuchi.entity.breakのパーミッションが無い為キャンセルしました。"
-		                );
-            return;
-		    }
-		}
-		return;
-	}
 
 	@EventHandler
 	public void onEntityDamageByEntityEvent(EntityDamageByEntityEvent event) {
 
-		for (Player player: Bukkit.getServer().getOnlinePlayers()) {
-		    if (player.hasPermission("gakubuchi.entity.damage")) {
-		        player.sendMessage(
-		        		ChatColor.AQUA
-		        		+"[情報]Entityにダメージを与えました。"
-		        		);
-		    }
+        //もし左クリック先が額縁なら
+        if (event.getEntity() instanceof ItemFrame) {
 
-		    else{
-		    	event.setCancelled(true);
-		    	player.sendMessage(
-		                ChatColor.AQUA
-		                + "[情報]gakubuchi.entity.damageのパーミッションが無い為キャンセルしました。"
-		                );
-            return;
-		    }
-		}
-		return;
+        	//ダメージを与えたプレイヤーを取得
+        	Player player =(Player)event.getDamager();
+
+        	//もしgakubuchi.entity.damageのパーミッション名を持っているのなら破壊
+        	if(player.hasPermission("gakubuchi.entity.damage")){
+        		player.sendMessage(
+        				ChatColor.AQUA
+        				+"[情報]額縁にダメージを与えました。(パーミッション：gakubuchi.entity.damage)"
+        				);
+        	}
+
+
+        	//gakubuchi.entity.damageを持っていないなら破壊イベントをキャンセル
+        	else{
+        		event.setCancelled(true);
+        		player.sendMessage(
+        				ChatColor.AQUA
+        				+"[情報]gakubuchi.entity.damageのパーミッションが無い為キャンセルしました。"
+        				);
+        	}
+        }
 	}
+
 
 	@EventHandler
 	public void onPlayerInteractEntityEvent(PlayerInteractEntityEvent event) {
 
-		for (Player player: Bukkit.getServer().getOnlinePlayers()) {
-		    if (player.hasPermission("gakubuchi.entity.interact")) {
-		        player.sendMessage(
-		        		ChatColor.AQUA
-		        		+"[情報]Entityに何かしらの影響を与えました。"
-		        		);
-		    }
+        //もし左クリック先が額縁なら
+        if (event.getRightClicked() instanceof ItemFrame) {
 
-		    else{
-		    	event.setCancelled(true);
-		    	player.sendMessage(
-		                ChatColor.AQUA
-		                + "[情報]gakubuchi.entity.interactのパーミッションが無い為キャンセルしました。"
-		                );
-            return;
-		    }
-		}
-		return;
+        	//ダメージを与えたプレイヤーを取得
+        	Player player =(Player)event.getPlayer();
+
+        	//もしgakubuchi.entity.interactのパーミッション名を持っているのなら破壊
+        	if(player.hasPermission("gakubuchi.entity.interact")){
+        		player.sendMessage(
+        				ChatColor.AQUA
+        				+"[情報]額縁に影響を与えました。(パーミッション：gakubuchi.entity.interact)"
+        				);
+        	}
+
+
+        	//gakubuchi.entity.interactを持っていないなら破壊イベントをキャンセル
+        	else{
+        		event.setCancelled(true);
+        		player.sendMessage(
+        				ChatColor.AQUA
+        				+"[情報]gakubuchi.entity.interactのパーミッションが無い為キャンセルしました。"
+        				);
+        	}
+        }
 	}
+
 
 	@EventHandler
-	public void onHangingBreakEvent(HangingBreakEvent event) {
+	public void onHangingBreakByEntityEvent(HangingBreakByEntityEvent event) {
 
-		for (Player player: Bukkit.getServer().getOnlinePlayers()) {
-		    if (player.hasPermission("gakubuchi.entity.hanging")) {
-		        player.sendMessage(
-		        		ChatColor.AQUA
-		        		+"[情報]Entityが依存しているブロックを破壊しました。"
-		        		);
-		    }
+	        //もし左クリック先が額縁なら
+	        if (event.getEntity() instanceof ItemFrame) {
 
-		    else{
-		    	event.setCancelled(true);
-		    	player.sendMessage(
-		                ChatColor.AQUA
-		                + "[情報]gakubuchi.entity.hangingのパーミッションが無い為キャンセルしました。"
-		                );
-            return;
-		    }
-		}
-		return;
+	        	//破壊者を取得
+	        	Player player =(Player)event.getRemover();
+
+	        	//もしgakubuchi.entity.breakのパーミッション名を持っているのなら破壊
+	        	if(player.hasPermission("gakubuchi.entity.break")){
+	        		player.sendMessage(
+	        				ChatColor.AQUA
+	        				+"[情報]額縁を破壊しました。(パーミッション：gakubuchi.entity.break)"
+	        				);
+	        	}
+
+
+	        	//gakubuchi.entity.breakを持っていないなら破壊イベントをキャンセル
+	        	else{
+	        		event.setCancelled(true);
+	        		player.sendMessage(
+	        				ChatColor.AQUA
+	        				+"[情報]gakubuchi.entity.breakのパーミッションが無い為キャンセルしました。"
+	        				);
+	        	}
+	        }
+
 	}
-
 }
