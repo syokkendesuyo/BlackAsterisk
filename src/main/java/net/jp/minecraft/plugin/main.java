@@ -44,7 +44,7 @@ public class main extends JavaPlugin implements Listener {
         	//設置者を取得
         	Player player =(Player)event.getPlayer();
 
-        	//もしgakubuchi.entity.placeのパーミッション名を持っているのなら破壊
+        	//もしgakubuchi.entity.placeのパーミッションを持っているのなら破壊
         	if(player.hasPermission("gakubuchi.entity.place")){
         		player.sendMessage(
         				ChatColor.AQUA
@@ -74,7 +74,7 @@ public class main extends JavaPlugin implements Listener {
         	//ダメージを与えたプレイヤーを取得
         	Player player =(Player)event.getDamager();
 
-        	//もしgakubuchi.entity.damageのパーミッション名を持っているのなら破壊
+        	//もしgakubuchi.entity.damageのパーミッションを持っているのなら破壊
         	if(player.hasPermission("gakubuchi.entity.damage")){
         		player.sendMessage(
         				ChatColor.AQUA
@@ -104,7 +104,7 @@ public class main extends JavaPlugin implements Listener {
         	//ダメージを与えたプレイヤーを取得
         	Player player =(Player)event.getPlayer();
 
-        	//もしgakubuchi.entity.interactのパーミッション名を持っているのなら破壊
+        	//もしgakubuchi.entity.interactのパーミッションを持っているのなら破壊
         	if(player.hasPermission("gakubuchi.entity.interact")){
         		player.sendMessage(
         				ChatColor.AQUA
@@ -134,7 +134,7 @@ public class main extends JavaPlugin implements Listener {
 	        	//破壊者を取得
 	        	Player player =(Player)event.getRemover();
 
-	        	//もしgakubuchi.entity.breakのパーミッション名を持っているのなら破壊
+	        	//もしgakubuchi.entity.breakのパーミッションを持っているのなら破壊
 	        	if(player.hasPermission("gakubuchi.entity.break")){
 	        		player.sendMessage(
 	        				ChatColor.AQUA
