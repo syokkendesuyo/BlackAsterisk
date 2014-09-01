@@ -38,15 +38,19 @@ public class main extends JavaPlugin implements Listener {
 			event.setFormat(ChatColor.GOLD + "[OP]" + ChatColor.RESET  + "<%1$s> %2$s");
 		}
 		else{
-				//ここからパーミッションがあればアスタリスクを付ける
-				if(player.hasPermission("blackasterisk.lv1")){
-					event.setFormat(ChatColor.BLACK + "*" + ChatColor.RESET + "<%1$s> %2$s");
+			//パーミッションがあればアスタリスクを付ける
+				if(player.hasPermission("blackasterisk.*")){
+					//無視する
+				}
+
+				else if(player.hasPermission("blackasterisk.lv1")){
+					event.setFormat("<" + ChatColor.BLACK + "*" + ChatColor.RESET + "%1$s>: %2$s");
 				}
 				else if(player.hasPermission("blackasterisk.lv2")){
-					event.setFormat(ChatColor.BLACK + "**" + ChatColor.RESET + "<%1$s> %2$s");
+					event.setFormat("<" + ChatColor.BLACK + "**" + ChatColor.RESET + "%1$s>: %2$s");
 				}
 				else if(player.hasPermission("blackasterisk.lv3")){
-					event.setFormat(ChatColor.BLACK + "***" + ChatColor.RESET + "<%1$s> %2$s");
+					event.setFormat("<" + ChatColor.BLACK + "***" + ChatColor.RESET + "%1$s>: %2$s");
 				}
 		}
 
