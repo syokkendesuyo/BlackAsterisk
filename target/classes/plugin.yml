@@ -1,7 +1,0 @@
-name: GakubuchiLockDebug
-version: 1.0.0
-main: net.jp.minecraft.plugin.main
-permissions:
-    gakubuchi.*:
-        description: GakubuchiLockPlugin!
-        default: op
