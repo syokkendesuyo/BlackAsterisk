@@ -12,19 +12,17 @@ syokkendesuyo
 
 ###＝概要＝
 
-額縁・絵画をデフォルトで設置、破壊を無効化するプラグイン。
+チャット時プレイヤー名の前に黒いアスタリスクをパーミッション設定によって付けれるプラグイン。
 
-このタイプはデバッグ用です。
+前科者に対し使うことを想定していますが他の使い道もあるかもしれません。
 
 ###＝パーミッションノード＝
 
-gakubuchi.entity.place Entityの設置を許可するかどうか
+blackasterisk.lv1 黒のアスタリスクを1つ付けます
 
-gakubuchi.entity.break Entityの破壊を許可するかどうか
+blackasterisk.lv2 黒のアスタリスクを2つ付けます
 
-gakubuchi.entity.damage 何らかのダメージで破壊できるかどうか
-
-gakubuchi.entity.interact 回転などの何かしらの影響をキャンセルするかどうか
+blackasterisk.lv3 黒のアスタリスクを3つ付けます
 
 
 
