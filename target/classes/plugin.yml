@@ -1,0 +1,13 @@
+name: BlackAsterisk
+version: 1.0.0
+main: net.jp.minecraft.plugin.main
+permissions:
+    asterisk.lv1:
+        description: BlackAsterisk_Lv1
+        default: op
+    asterisk.lv2:
+        description: BlackAsterisk_Lv2
+        default: op
+    asterisk.lv3:
+        description: BlackAsterisk_Lv3
+        default: op

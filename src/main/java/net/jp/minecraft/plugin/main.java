@@ -27,26 +27,27 @@ public class main extends JavaPlugin implements Listener {
 
 
 
+    //チャット時のイベント
 	@EventHandler
 	public void onPlayerChat(AsyncPlayerChatEvent event){
 
+		//プレイヤーを取得
 		Player player=event.getPlayer();
 		if(player.isOp()){
-
+			//OPなら[OP]と付ける
 			event.setFormat(ChatColor.GOLD + "[OP]" + ChatColor.RESET  + "<%1$s> %2$s");
 		}
 		else{
+				//ここからパーミッションがあればアスタリスクを付ける
 				if(player.hasPermission("blackasterisk.lv1")){
 					event.setFormat(ChatColor.BLACK + "*" + ChatColor.RESET + "<%1$s> %2$s");
 				}
 				else if(player.hasPermission("blackasterisk.lv2")){
-					event.setFormat(ChatColor.BLACK + "** " + ChatColor.RESET + "<%1$s> %2$s");
+					event.setFormat(ChatColor.BLACK + "**" + ChatColor.RESET + "<%1$s> %2$s");
 				}
 				else if(player.hasPermission("blackasterisk.lv3")){
-					event.setFormat(ChatColor.BLACK + "*** " + ChatColor.RESET + "<%1$s: %2$s");
+					event.setFormat(ChatColor.BLACK + "***" + ChatColor.RESET + "<%1$s> %2$s");
 				}
-
-
 		}
 
 
